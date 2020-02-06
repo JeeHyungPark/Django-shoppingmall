@@ -1,5 +1,4 @@
 from django.db import models
-
 from django.urls import reverse
 
 class Category(models.Model): #제품 카테고리 모델
@@ -28,7 +27,7 @@ class Product(models.Model): #제품 모델
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
 
-    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True) #image에 빈칸 허용하는거 아닌가? 왜 사진 안넣으면 메인페이지 에러 나지 ㅠ
+    image = models.ImageField(upload_to='../products/%Y/%m/%d', blank=True) #image에 빈칸 허용하는거 아닌가? 왜 사진 안넣으면 메인페이지 에러 나지 ㅠ
     description = models.TextField(blank=True)
     meta_description = models.TextField(blank=True)
 

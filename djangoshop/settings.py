@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.naver',
+    'cart',
+    'coupon',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -39,6 +41,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
+CART_ID = 'cart_in_session'
 
 LOGIN_REDIRECT_URL = '/'
 
@@ -121,3 +124,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'products')
+MEDIA_URL = '/products/'
