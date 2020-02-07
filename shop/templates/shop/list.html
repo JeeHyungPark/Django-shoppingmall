@@ -2,7 +2,7 @@
 {% block title %}Category Page{% endblock %}
 {% block content %}
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-2">
             <div class="list-group">
                 <a href="/" class="list-group-item {% if not current_category %}active{% endif %}">All</a>
@@ -10,10 +10,104 @@
                     <a href="{{c.get_absolute_url}}" class="list-group-item {% if current_category.slug == c.slug %}active{% endif %}">{{c.name}}</a>
                 {% endfor %}
             </div>
+        </div> -->
+
+        <!-- <div class="col-xl-6 col-lg-6">
+            <div class="main-menu  d-none d-lg-block">
+                <nav>
+                    <ul id="navigation">
+                        <li><a href="/" class="{% if not current_category %}active{% endif %}">All</a></li>
+                        {% for c in categories %}
+                            <li><a href="{{c.get_absolute_url}}" class="{% if current_category.slug == c.slug %} active {% endif %}">{{c.name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+        </div> -->
+
+        <!-- cutter_muster_start -->
+    <div class="cutter_muster">
+        <div class="container">
+                <div class="row">
+                        <div class="col-xl-12">
+                            <div class="section_title2 text-center mb-90">
+                                <i class="flaticon-scissors"></i>
+                                {% if current_category %}{{current_category.name}}{% else %}All Products{% endif %}
+                            </div>
+                        </div>
+                    </div>
+    
+            <div class="row">
+            {% for product in products %}
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_master">
+                        <div class="thumb">
+                            <img src="{{product.image.url}}" alt="Product Image">
+                            <div class="social_link">
+                                <a href="{{product.get_absolute_url}}">View Detail</a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>{{product.name}}</h3>
+                            <p>{{product.description}}</p>
+                            <p>${{product.price}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+                <!-- <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_master">
+                        <div class="thumb">
+                            <img src="img/team/2.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Dan Jacky</h3>
+                            <p>Mens Cut</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_master">
+                        <div class="thumb">
+                            <img src="img/team/3.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Luka Luka</h3>
+                            <p>Mens Cut</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_master">
+                        <div class="thumb">
+                            <img src="img/team/4.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Rona Dana</h3>
+                            <p>Ladies Cut</p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
         </div>
-
-
-        <div class="col">
+    </div>
+    <!-- cutter_muster_end -->
+        <!-- <div class="col">
             <div class="alert alert-info" role="alert">
               {% if current_category %}{{current_category.name}}{% else %}All Products{% endif %}
             </div>
@@ -33,7 +127,7 @@
 
             {% endfor %}
             </div>
-        </div>
+        </div> -->
     </div>
 
 
