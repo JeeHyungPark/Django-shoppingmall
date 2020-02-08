@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
 {% block title %}Product Detail{% endblock %}
 {% block content %}
-
-
+        
+    <div class="cutter_muster">
         <div class="container">
+                <div class="row">
+                        <div class="col-xl-12">
+                            <div class="section_title2 text-center mb-90">
+                                <i class="flaticon-scissors"></i>
+                                {% if current_category %}{{current_category.name}}{% else %}All Products{% endif %}
+                            </div>
+                        </div>
+                </div>
+
+            
             <div class="row">
                 <div class="col-4">
-                    <img src="{{product.image.url}}" width="100%">
+                    <img src="{{product.image.url}}">
                 </div>
                 <div class="col">
                     <h1 class="display-6">{{product.name}}</h1>
@@ -15,12 +25,12 @@
                     <form action="{% url 'cart:product_add' product.id %}" method="post">
                         {{add_to_cart}}
                         {% csrf_token %}
-                        <input type="submit" class="btn btn-primary btn-sm" value="Add to Cart">
+                        <input type="submit" class="genric-btn info circle" value="Add to Cart">
                     </form>
                     <h5><span class="badge badge-secondary">Description</span>{{product.description|linebreaks}}</h5>
                 </div>
             </div>
-
         </div>
+    </div>
 
 {% endblock %}
